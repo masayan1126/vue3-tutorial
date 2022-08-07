@@ -1,20 +1,36 @@
-<template></template>
+<template>
+  <p>{{ reactiveHuman.name }}</p>
+  <p>{{ reactiveHuman.age }}</p>
+</template>
 
 <script>
-import { ref } from "vue";
+import { reactive, toRef, toRefs } from "vue";
 
 export default {
   setup() {
-    const a = 15;
-    const b = ref(a);
+    const human = {
+      name: "masayan",
+      age: 28,
+    };
+    const reactiveHuman = reactive(human);
 
-    console.log(a === b); // false
-    console.log(a === b.value); // true
+    console.log(reactiveHuman); // Proxy {name: 'masayan', age: 28}
+    console.log(reactiveHuman.age); // 28
 
-    b.value = 16;
-    console.log(a, b.value); // 15, 16
+    reactiveHuman.age = 25; // OK(.valueは不要)
 
-    return {};
+    console.log(reactiveHuman); // Proxy {name: 'masayan', age: 25}
+
+    // reactiveHuman = {
+    //   name: "hogemaru",
+    //   age: 35,
+    // }; // Uncaught TypeError: Assignment to constant variable.(再代入不可。refなら可)
+
+    // const { name, age } = reactiveHuman; // NG(name, ageはリアクティブではなくなる)
+    // const name = toRef(reactiveHuman, "name"); // 単一(toRef(オブジェクト, 対象のキー))
+    const { name, age } = toRefs(reactiveHuman); // 複数
+
+    return { reactiveHuman, name, age };
   },
 };
 </script>
