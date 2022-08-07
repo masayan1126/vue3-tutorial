@@ -1,6 +1,9 @@
 <template>
+  <p>TODOリストとは無関係のリアクティブな値：{{ other }}</p>
+  <button @click="updateOther">
+    TODOリストとは無関係のリアクティブな値を更新する
+  </button>
   <button @click="add">TODOを追加する</button>
-  <p>TODOの全件数：{{ notWorkingCount }}</p>
   <p>TODOの全件数：{{ workingCount1() }}</p>
   <p>TODOの全件数：{{ workingCount2 }}</p>
   <ul>
@@ -25,19 +28,23 @@ export default {
       todoList.value.push(todo);
     };
 
-    const notWorkingCount = todoList.value.length;
+    const other = ref("other value");
+    const updateOther = () => (other.value = "updated other value");
 
     const workingCount1 = () => {
+      console.log("reassessmente method !!");
       return todoList.value.length;
     };
     const workingCount2 = computed(() => {
+      console.log("reassessmente computed !!");
       return todoList.value.length;
     });
 
     return {
       todoList,
       add,
-      notWorkingCount,
+      other,
+      updateOther,
       workingCount1,
       workingCount2,
     };
