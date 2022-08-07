@@ -1,21 +1,20 @@
-<template>
-  <p>現在のカウント数:{{ current }}</p>
-  <div>
-    <button @click="current++">カウントアップ</button>
-  </div>
-</template>
+<template></template>
 
 <script>
 import { ref } from "vue";
 
 export default {
   setup() {
-    // const current = 0; //　not reactive
-    const current = ref(0); // reactive
+    const a = 15;
+    const b = ref(a);
 
-    return {
-      current,
-    };
+    console.log(a === b); // false
+    console.log(a === b.value); // true
+
+    b.value = 16;
+    console.log(a, b.value); // 15, 16
+
+    return {};
   },
 };
 </script>
