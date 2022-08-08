@@ -1,7 +1,8 @@
 <template>
   <button @click="add">TODOを追加する</button>
   <p>TODOの全件数：{{ notWorkingCount }}</p>
-  <!-- <p>{{ todoList.length }}</p>  これはOK-->
+  <!-- これはOK(もちろん、対象がリアクティブな値であることが前提) -->
+  <!-- <p>{{ todoList.length }}</p> -->
   <p>TODOの全件数：{{ workingCount1() }}</p>
   <p>TODOの全件数：{{ workingCount2 }}</p>
   <ul>
