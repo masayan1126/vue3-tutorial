@@ -1,6 +1,7 @@
 <template>
   <button @click="add">TODOを追加する</button>
   <p>TODOの全件数：{{ notWorkingCount }}</p>
+  <!-- <p>{{ todoList.length }}</p>  これはOK-->
   <p>TODOの全件数：{{ workingCount1() }}</p>
   <p>TODOの全件数：{{ workingCount2 }}</p>
   <ul>
@@ -26,6 +27,7 @@ export default {
     };
 
     const notWorkingCount = todoList.value.length;
+    // const notWorkingCount = ref(todoList.value.length); // こちらもnot working
 
     const workingCount1 = () => {
       return todoList.value.length;
