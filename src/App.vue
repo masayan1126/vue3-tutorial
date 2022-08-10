@@ -1,7 +1,7 @@
 <template>
   <button @click="add">TODOを追加する</button>
   <p>TODOの全件数：{{ notWorkingCount }}</p>
-  <!-- これはOK(もちろん、対象がリアクティブな値であることが前提) -->
+  <!-- ただ要素数を返すだけのシンプルなものであれば、これでもOK(もちろん、対象がリアクティブな値であることが前提) -->
   <!-- <p>{{ todoList.length }}</p> -->
   <p>TODOの全件数：{{ workingCount1() }}</p>
   <p>TODOの全件数：{{ workingCount2 }}</p>
