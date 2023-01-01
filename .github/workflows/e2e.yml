@@ -15,19 +15,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # # Next.jsアプリを起動
-      - name: Start App
-        run: |
-          npm ci
-          npm run build
-          npm run preview
-
       # cypress-io/github-action@v2 を使用してCypressを実行
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
+          working-directory: ${{env.working-directory}}
+          build: npm run build
+          start: npm run dev
           browser: chrome
-          wait-on: "http://localhost:4173"
+          wait-on: "http://localhost:3000"
+          wait-on-timeout: 120
+          config-file: cypress.config.js
+          record: true
       # # 任意
       # # Cypress実行時に生成されたビデオとスクリーンショットを保存できる
       # # 参考: https://github.com/cypress-io/github-action#artifacts
