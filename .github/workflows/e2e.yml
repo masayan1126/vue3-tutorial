@@ -23,20 +23,16 @@ jobs:
           npm run preview
 
       # cypress-io/github-action@v2 を使用してCypressを実行
-      - uses: cypress-io/github-action@v2
+       - name: E2Eテスト実行
+        uses: cypress-io/github-action@v2
         with:
-          # Next.js (http://localhost:4173) の起動を待つ
-          wait-on: "http://localhost:4173"
-          # Cypress を ./e2e/ に配置しているため、working-directoryを指定する
-          # デフォルトはルートディレクトリ
-          # 参考: https://github.com/cypress-io/github-action#working-directory
-          working-directory: cypress/e2e
+          start: npm run preview
 
-      # 任意
-      # Cypress実行時に生成されたビデオとスクリーンショットを保存できる
-      # 参考: https://github.com/cypress-io/github-action#artifacts
-      - uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: Cypress E2E Videos
-          path: e2e/cypress/videos
+      # # 任意
+      # # Cypress実行時に生成されたビデオとスクリーンショットを保存できる
+      # # 参考: https://github.com/cypress-io/github-action#artifacts
+      # - uses: actions/upload-artifact@v2
+      #   if: always()
+      #   with:
+      #     name: Cypress E2E Videos
+      #     path: e2e/cypress/videos
