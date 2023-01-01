@@ -18,6 +18,7 @@ jobs:
       # Next.jsアプリを起動
       - name: Start App
         run: |
+          npm ci
           npm run build
           npm run preview
 
