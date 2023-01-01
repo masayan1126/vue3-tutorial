@@ -22,6 +22,6 @@ describe('example to-do app', () => {
 
   it('.type() - type into a DOM element', () => {
     cy.get('p')
-    .should('have.text', 'test')
+    .should('have.text', 'たなかたろう')
     })
 })
