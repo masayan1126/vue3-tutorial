@@ -23,10 +23,10 @@ jobs:
           npm run preview
 
       # cypress-io/github-action@v2 を使用してCypressを実行
-       - name: E2Eテスト実行
+      - name: E2Eテスト実行
         uses: cypress-io/github-action@v2
         with:
-          start: npm run preview
+         start: npm run preview
 
       # # 任意
       # # Cypress実行時に生成されたビデオとスクリーンショットを保存できる
