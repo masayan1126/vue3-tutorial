@@ -26,7 +26,7 @@ jobs:
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
           config-file: cypress.config.js
-          record: true
+          # record: true
       # # 任意
       # # Cypress実行時に生成されたビデオとスクリーンショットを保存できる
       # # 参考: https://github.com/cypress-io/github-action#artifacts
