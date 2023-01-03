@@ -1,4 +1,3 @@
-# 任意のワークフロー名
 name: End-to-end tests
 on: [push]
 jobs:
@@ -14,7 +13,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          # working-directory: ${{env.working-directory}}
           build: npm run build
           start: npm run dev
           browser: chrome
